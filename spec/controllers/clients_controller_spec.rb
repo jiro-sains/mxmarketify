@@ -16,14 +16,58 @@ RSpec.describe ClientsController, type: :controller do
   end
 
   describe "clients#create action" do
-    it "should successfully create a new client in the database" do
-      post :create, params: { client: { first_name: "John", last_name: "Smith", company: "Acme" } }
-      expect(response).to redirect_to root_path
-
-      client = Client.last
-      expect(client.first_name).to eq("John")
-      expect(client.last_name).to eq("Smith")
-      expect(client.company).to eq("Acme")
+    context 'with valid data' do
+      it "successfully creates a new client in the database" do
+        expect {FactoryBot.create(:client)}.to change {Client.count}
+      end
     end
+
+    context "no first name" do
+      it "is not valid without first name" do
+        client1 = FactoryBot.build(:client, first_name: '')
+        expect(client1).to_not be_valid
+      end
+    end
+
+    context "no last name" do
+      it "is not valid without last name" do
+        client1 = FactoryBot.build(:client, last_name: '')
+        expect(client1).to_not be_valid
+      end
+    end
+
+    context "no company" do
+      it "is not valid without company name" do
+        client1 = FactoryBot.build(:client, company: '')
+        expect(client1).to_not be_valid
+      end
+    end
+
+    context "no title" do
+      it "is not valid without title" do
+        client1 = FactoryBot.build(:client, title: '')
+        expect(client1).to_not be_valid
+      end
+    end
+
+    context "no telephone" do
+      it "is not valid without telephone" do
+        client1 = FactoryBot.build(:client, telephone: '')
+        expect(client1).to_not be_valid
+      end
+    end    
+
+    context "no email" do
+      it "is not valid without email" do
+        client1 = FactoryBot.build(:client, email: '')
+        expect(client1).to_not be_valid
+      end
+    end 
+    
   end
+
+
 end
+
+
+

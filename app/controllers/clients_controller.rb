@@ -8,7 +8,11 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.create(client_params)
-    redirect_to root_path
+    if @client.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
