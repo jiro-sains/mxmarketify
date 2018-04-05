@@ -1,8 +1,8 @@
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-lg-8 offset-2">
   <h2>Captura los detalles del cliente</h2>
-
+  <br>
   <%= simple_form_for @client do |f| %>
-    <%= f.input :first_name, label: 'Nombre' %>
+    <%= f.input :first_name, label: 'Nombre*', :required => false %>
     <%= f.input :last_name, label: 'Apellido' %>
     <%= f.input :company, label: 'Compañía' %>
     <%= f.input :title, label: 'Título' %>
@@ -12,4 +12,4 @@
     <%= f.submit "Listo", class: 'btn btn-primary' %>
   <% end %>
 
-</div?
+</div>
