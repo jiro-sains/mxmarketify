@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :campaign do
+    
+  end
   factory :client do
     first_name 'John' 
     last_name 'Smith' 

@@ -1,0 +1,2 @@
+module Manufacturer::CampaignsHelper
+end

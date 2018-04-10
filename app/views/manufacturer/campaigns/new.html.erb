@@ -1,0 +1,13 @@
+<br />
+<div class="booyah-box col-10 offset-1">
+  <h1>Add a new campaign</h1>
+    <%= simple_form_for @campaign, url: manufacturer_campaigns_path do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <br />
+    <%= f.submit "Crear", campaign: 'btn btn-primary' %>
+    <br />
+  <% end %>
+  <br />
+
+</div>
